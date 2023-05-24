@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculador de Sueño😴</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='sueño.png') }}");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculador de Sueño😴</h1>
+        <form action="/" method="POST">
+            <label for="bedtime">Hora de dormir⏰ (HH:MM)</label>
+            <input type="text" id="bedtime" name="bedtime" required>
+            <button type="submit">Calcular</button>
+        </form>
+        {% if wakeup_time_min and wakeup_time_max %}
+            <div class="result">
+                <p>Deberías despertar entre las {{ wakeup_time_min }} y las {{ wakeup_time_max }} para tener un descanso adecuado😁.</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
